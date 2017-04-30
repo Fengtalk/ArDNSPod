@@ -12,12 +12,7 @@ case $(uname) in
   'Linux')
     echo "Linux"
     arIpAddress() {
-        local extip
-        extip=$(ip -o -4 addr list | grep -Ev '\s(docker|lo)' | awk '{print $4}' | cut -d/ -f1 | grep -Ev '(^127\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$)|(^10\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$)|(^172\.1[6-9]{1}[0-9]{0,1}\.[0-9]{1,3}\.[0-9]{1,3}$)|(^172\.2[0-9]{1}[0-9]{0,1}\.[0-9]{1,3}\.[0-9]{1,3}$)|(^172\.3[0-1]{1}[0-9]{0,1}\.[0-9]{1,3}\.[0-9]{1,3}$)|(^192\.168\.[0-9]{1,3}\.[0-9]{1,3}$)')
-        if [ "x${extip}" = "x" ]; then
-	        extip=$(ip -o -4 addr list | grep -Ev '\s(docker|lo)' | awk '{print $4}' | cut -d/ -f1 )
-        fi
-        echo $extip
+      wget http://ipecho.net/plain -O - -q ; echo
     }
     ;;
   'FreeBSD')
@@ -31,7 +26,7 @@ case $(uname) in
   'Darwin')
     echo "Mac"
     arIpAddress() {
-        ifconfig | grep "inet " | grep -v 127.0.0.1 | awk '{print $2}'
+        wget -qO – ifconfig.co
     }
     ;;
   'SunOS')
