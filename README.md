@@ -25,6 +25,7 @@ arDdnsCheck "test.org" "subdomain"
 # 最近更新
 
 2017/4/30
+- 更新获取公网IP地址的接口为ip.cip.cc。
 - 解决华芸NAS(Linux)下无法获取公网IP地址的问题。(by Fengtalk)
 
 2015/2/24
