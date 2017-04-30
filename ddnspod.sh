@@ -12,7 +12,7 @@ case $(uname) in
   'Linux')
     echo "Linux"
     arIpAddress() {
-      wget http://ipecho.net/plain -O - -q ; echo
+      curl http://ip.cip.cc
     }
     ;;
   'FreeBSD')
@@ -26,7 +26,7 @@ case $(uname) in
   'Darwin')
     echo "Mac"
     arIpAddress() {
-        wget -qO – ifconfig.co
+      curl http://ip.cip.cc
     }
     ;;
   'SunOS')
